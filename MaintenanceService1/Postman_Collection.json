@@ -1,0 +1,147 @@
+{
+  "info": {
+    "_postman_id": "maintenance-tracker-api",
+    "name": "Utility Asset Maintenance Tracker API",
+    "description": "API collection for testing the Utility Asset Maintenance Tracker service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Maintenance Plan",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"assetId\": 101,\n  \"frequency\": \"Monthly\",\n  \"tasks\": [\n    {\n      \"name\": \"Inspect Transformer\",\n      \"description\": \"Visual inspection of transformer for damage or leaks\",\n      \"estimatedHours\": 2.5\n    },\n    {\n      \"name\": \"Clean Equipment\",\n      \"description\": \"Remove dust and debris from equipment\",\n      \"estimatedHours\": 1.0\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5151/api/maintenance-plans",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5151",
+          "path": [
+            "api",
+            "maintenance-plans"
+          ]
+        },
+        "description": "Creates a new maintenance plan with tasks. Frequency can be 'Monthly' or 'Quarterly'."
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Maintenance Plans",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5151/api/maintenance-plans",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5151",
+          "path": [
+            "api",
+            "maintenance-plans"
+          ]
+        },
+        "description": "Retrieves all maintenance plans with their associated tasks."
+      },
+      "response": []
+    },
+    {
+      "name": "Get Maintenance Plans by Asset ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5151/api/maintenance-plans?assetId=101",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5151",
+          "path": [
+            "api",
+            "maintenance-plans"
+          ],
+          "query": [
+            {
+              "key": "assetId",
+              "value": "101",
+              "description": "Filter by specific asset ID"
+            }
+          ]
+        },
+        "description": "Retrieves maintenance plans for a specific asset ID."
+      },
+      "response": []
+    },
+    {
+      "name": "Update Maintenance Plan",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"assetId\": 101,\n  \"frequency\": \"Quarterly\",\n  \"tasks\": [\n    {\n      \"name\": \"Full System Inspection\",\n      \"description\": \"Complete inspection of all components\",\n      \"estimatedHours\": 5.0\n    },\n    {\n      \"name\": \"Performance Testing\",\n      \"description\": \"Run performance tests on the system\",\n      \"estimatedHours\": 3.5\n    },\n    {\n      \"name\": \"Update Documentation\",\n      \"description\": \"Update maintenance logs and documentation\",\n      \"estimatedHours\": 1.5\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5151/api/maintenance-plans/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5151",
+          "path": [
+            "api",
+            "maintenance-plans",
+            "1"
+          ]
+        },
+        "description": "Updates an existing maintenance plan. Replace '1' in the URL with the actual plan ID."
+      },
+      "response": []
+    },
+    {
+      "name": "Swagger UI",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5151/swagger",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5151",
+          "path": [
+            "swagger"
+          ]
+        },
+        "description": "Opens the Swagger UI documentation in the browser."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5151",
+      "type": "string"
+    }
+  ]
+}

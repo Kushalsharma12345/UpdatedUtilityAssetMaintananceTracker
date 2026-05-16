@@ -1,3 +1,20 @@
-.vs/
+# Build folders
 bin/
 obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# Local database files
+*.db
+*.sqlite
+
+# Environment / sensitive config
+MaintenanceService1/appsettings.Development.json
