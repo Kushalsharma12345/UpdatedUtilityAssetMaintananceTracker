@@ -4,19 +4,21 @@ namespace AssetService.DTO
 {
     public class CreateAssetDTO
     {
-        [Required(ErrorMessage = "Asset name is required")]
+        [Required]
         [MaxLength(200)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        [Required(ErrorMessage = "Asset type is required")]
+        [Required]
         [MaxLength(100)]
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
-        [Required(ErrorMessage = "Installation date is required")]
+        [Required]
         public DateTime InstallationDate { get; set; }
 
-        [Required(ErrorMessage = "Status is required")]
+        [Required]
         [MaxLength(50)]
-        public string Status { get; set; }
+        public string? Status { get; set; }
+
+        public CreateLocationDTO? Location { get; set; }
     }
 }
